@@ -1,6 +1,6 @@
 // application packages
 const express = require('express')
-const app = express()
+const app = express();
 
 const path = require('path')
 
@@ -38,7 +38,20 @@ con.connect(function(err) {
 	console.log("Connected to joga_mysql");
 });
 
+
+app.get('/', (req, res) => {
+	let query = "SELECT * FROM article";
+	let articles = []
+	con.query(query, (err, result) => {
+		if (err) throw err;
+		articles = result
+		res.render('index', {
+			articles: articles
+		})
+	})
+});
+
 // app start point
 app.listen(3000, () => {
-	console.log("App is started at http://localhost:3000");
+	console.log("App is started at http://localhost:3000")
 });
