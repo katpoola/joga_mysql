@@ -1,0 +1,25 @@
+{
+  "name": "joga_mysql",
+  "version": "1.0.0",
+  "description": "joga_mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katpoola/joga_mysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katpoola/joga_mysql/issues"
+  },
+  "homepage": "https://github.com/katpoola/joga_mysql#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "mysql": "^2.18.1"
+  }
+}
