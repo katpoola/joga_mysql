@@ -64,6 +64,26 @@ app.get('/article/:slug', (req, res) => {
 	})
 });
 
+// show articles by author
+app.get('/author/:id', (req, res) => {
+	let authorQuery = `SELECT name FROM author WHERE id = ${req.params.id}`
+	let author
+	let articlesQuery = `SELECT * from article WHERE author_id = ${req.params.id}`
+	let articles
+	con.query(articlesQuery, (err, result) => {
+		if (err) throw err;
+		articles = result;
+	})
+	con.query(authorQuery, (err, result) => {
+		if (err) throw err;
+		author = result;
+		res.render('author', {
+			author: author,
+			articles: articles
+		})
+	})
+})
+
 // app start point
 app.listen(3000, () => {
 	console.log("App is started at http://localhost:3000")
