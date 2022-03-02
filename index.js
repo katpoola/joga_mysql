@@ -38,6 +38,12 @@ con.connect(function(err) {
 	console.log("Connected to joga_mysql");
 });
 
+const articleRoutes = require('./routes/article'); // import article route
+
+// to use article routes
+app.use('/', articleRoutes);
+app.use('/article', articleRoutes);
+
 // show all articles - index page
 app.get('/', (req, res) => {
 	let query = "SELECT * FROM article";
@@ -59,8 +65,8 @@ app.get('/article/:slug', (req, res) => {
 		if (err) throw err;
 		article = result;
 		res.render('article', {
-			article: article,
-		})
+			article: article
+,		})
 	})
 });
 
